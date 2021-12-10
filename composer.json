@@ -1,0 +1,76 @@
+{
+    "name": "maize-tech/laravel-nps",
+    "description": "Laravel nps",
+    "keywords": [
+        "maize-tech",
+        "laravel",
+        "laravel-nps"
+    ],
+    "homepage": "https://github.com/maize-tech/laravel-nps",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Enrico De Lazzari",
+            "email": "enrico.delazzari@h-farm.com",
+            "homepage": "https://innovation.h-farm.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Riccardo Dalla Via",
+            "email": "riccardo.dallavia@h-farm.com",
+            "homepage": "https://innovation.h-farm.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/database": "^8.0",
+        "illuminate/http": "^8.0",
+        "illuminate/routing": "^8.0",
+        "illuminate/support": "^8.0",
+        "illuminate/validation": "^8.0",
+        "spatie/laravel-package-tools": "^1.9.2"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.3",
+        "nunomaduro/collision": "^5.10",
+        "nunomaduro/larastan": "^1.0",
+        "orchestra/testbench": "^6.23",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.5",
+        "spatie/laravel-ray": "^1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "Maize\\Nps\\": "src",
+            "Maize\\Nps\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Maize\\Nps\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "format": "vendor/bin/php-cs-fixer fix --config=.php_cs.dist.php --allow-risky=yes",
+        "phpstan": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Maize\\Nps\\NpsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
