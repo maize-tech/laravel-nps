@@ -20,7 +20,7 @@ return new class extends Migration
 
         Schema::create('nps_answers', function (Blueprint $table) {
             $table->foreignId('nps_id')->constrained('nps')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->integer('value')->nullable();
             $table->text('answer')->nullable();
             $table->timestamps();
