@@ -12,7 +12,7 @@ trait CanAnswerNps
         $nps = $this->findCurrentNps();
 
         if (is_null($nps)) {
-            return false;
+            return true;
         }
 
         return $this->hasAnsweredNps($nps);
