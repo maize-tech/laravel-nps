@@ -4,7 +4,7 @@
     "keywords": [
         "maize-tech",
         "laravel",
-        "laravel-nps"
+        "nps"
     ],
     "homepage": "https://github.com/maize-tech/laravel-nps",
     "license": "MIT",
@@ -24,25 +24,24 @@
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/database": "^9.0",
-        "illuminate/http": "^9.0",
-        "illuminate/routing": "^9.0",
-        "illuminate/support": "^9.0",
-        "illuminate/validation": "^9.0",
-        "spatie/laravel-package-tools": "^1.9.2"
+        "illuminate/database": "^9.0|^10.0",
+        "illuminate/http": "^9.0|^10.0",
+        "illuminate/routing": "^9.0|^10.0",
+        "illuminate/support": "^9.0|^10.0",
+        "illuminate/validation": "^9.0|^10.0",
+        "spatie/laravel-package-tools": "^1.14.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.4",
         "nunomaduro/collision": "^6.0",
         "nunomaduro/larastan": "^2.0.1",
-        "orchestra/testbench": "^7.0",
+        "orchestra/testbench": "^7.0|^8.0",
         "pestphp/pest": "^1.21",
         "pestphp/pest-plugin-laravel": "^1.1",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
-        "phpunit/phpunit": "^9.5",
-        "spatie/laravel-ray": "^1.26"
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
