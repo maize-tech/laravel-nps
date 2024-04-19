@@ -16,6 +16,7 @@ abstract class NpsFinder
         $model = $this->getNpsModel();
         $builder = $model::query();
 
+        /** @var ?Nps $nps */
         $nps = Cache::remember(
             $model::npsCacheKey(),
             config('nps.cache.nps_ttl'),
