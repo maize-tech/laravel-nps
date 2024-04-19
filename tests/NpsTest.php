@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Cache;
 use Maize\Nps\Models\Nps;
 use Maize\Nps\Tests\Models\User;
 
-test('can get a nps', function (User $user) {
+test('can get a nps', function () {
+    $user = User::factory()->create();
+
     $nps = Nps::factory()->create([
         'starts_at' => now()->subDays(2),
         'ends_at' => now()->addDays(2),
@@ -19,9 +21,12 @@ test('can get a nps', function (User $user) {
                 'question' => $nps->question,
             ],
         ]);
-})->with('user');
+});
 
-test('cannot get a ended nps', function (User $user) {
+test('cannot get a ended nps', function () {
+
+    $user = User::factory()->create();
+
     Nps::factory()->create([
         'starts_at' => now()->subDays(4),
         'ends_at' => now()->subDays(2),
@@ -30,9 +35,11 @@ test('cannot get a ended nps', function (User $user) {
     actingAs($user, 'api')
         ->getJson(routeByPartialName('nps.show'))
         ->assertStatus(404);
-})->with('user');
+});
 
-test('cannot get a not started nps', function (User $user) {
+test('cannot get a not started nps', function () {
+    $user = User::factory()->create();
+
     Nps::factory()->create([
         'starts_at' => now()->addDays(4),
         'ends_at' => now()->addDays(2),
@@ -41,9 +48,11 @@ test('cannot get a not started nps', function (User $user) {
     actingAs($user, 'api')
         ->getJson(routeByPartialName('nps.show'))
         ->assertStatus(404);
-})->with('user');
+});
 
-test('can get current nps', function (User $user, Nps $nps) {
+test('can get current nps', function (Nps $nps) {
+    $user = User::factory()->create();
+
     Nps::factory()->create([
         'starts_at' => null,
         'ends_at' => null,
@@ -82,9 +91,11 @@ test('can get current nps', function (User $user, Nps $nps) {
                 'id' => $nps->getKey(),
             ],
         ]);
-})->with('user', 'current_nps');
+})->with('current_nps');
 
-test('nps should be cached', function (User $user, Nps $nps) {
+test('nps should be cached', function (Nps $nps) {
+    $user = User::factory()->create();
+
     actingAs($user, 'api')
         ->getJson(routeByPartialName('nps.show'))
         ->assertStatus(200);
@@ -96,4 +107,4 @@ test('nps should be cached', function (User $user, Nps $nps) {
     expect(
         Cache::get(Nps::npsCacheKey())->toArray()
     )->toMatchArray($nps->toArray());
-})->with('user', 'current_nps');
+})->with('current_nps');

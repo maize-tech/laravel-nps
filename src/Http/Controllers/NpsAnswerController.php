@@ -10,12 +10,13 @@ class NpsAnswerController extends Controller
 {
     public function __invoke(NpsAnswerRequest $request, $id)
     {
-        $request
-            ->user()
-            ->answerNps(
-                Nps::findOrFail($id),
-                $request->validated()
-            );
+        $user = $request->user();
+
+        /** @phpstan-ignore-next-line */
+        $user->answerNps(
+            Nps::findOrFail($id),
+            $request->validated()
+        );
 
         return response()->noContent();
     }

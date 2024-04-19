@@ -10,10 +10,11 @@ class NpsController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $nps = $request
-            ->user()
-            ->findCurrentNps(true);
+        $user = $request->user();
 
-        return new NpsResource($nps);
+        /** @phpstan-ignore-next-line */
+        $nps = $user->findCurrentNps(true);
+
+        return NpsResource::make($nps);
     }
 }
