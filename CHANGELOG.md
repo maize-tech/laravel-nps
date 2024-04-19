@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-nps` will be documented in this file.
 
+## 2.2.0 - 2024-04-19
+
+### What's Changed
+
+* Laravel 11.x Compatibility by @enricodelazzari in https://github.com/maize-tech/laravel-nps/pull/9
+
 ## 2.1.0 - 2023-02-13
 
 ### What's Changed
